@@ -1,6 +1,6 @@
-# ddos
+# DDOS
 All in one ddos attack toolkit and more....
-# note
+# Note
 note:please only use this tool for education purposes ..
 #Credit
 bane module credit goes to ala 
