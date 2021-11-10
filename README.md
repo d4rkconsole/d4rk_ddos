@@ -2,7 +2,7 @@
 All in one ddos attack toolkit and more....
 # Note
 note:please only use this tool for education purposes ..
-#Credit
+# Credit
 bane module credit goes to ala 
 you can find bane module here 
 bane ->> https://github.com/AlaBouali/bane
