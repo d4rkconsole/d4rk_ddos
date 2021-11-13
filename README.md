@@ -11,8 +11,8 @@ bane ->> https://github.com/AlaBouali/bane
 
 # Requirements
 Here bane module is required if it is not installed this tool will install automatically ...
-# Os
-->>  this tool can Run in both operating system windows also and linux also bane module can run 
+# OS INFOMRATION 
+->>  This tool can Run in both operating system windows also and linux also bane module can run 
 in both os windows and linux but python must be installed on windows ..
 
 # Usage
