@@ -23,9 +23,7 @@ m = Fore.MAGENTA
 reset = Style.RESET_ALL
 
 
-if (sys.platform) == "win32" or (sys.platform) == "win64":
-	print(b + "[-] This Tool is For Linux Not Windows ... ")
-	sys.exit()
+
 
 
 try:
@@ -169,41 +167,14 @@ while True:
 		print(reset)
 		proxy = bane.massocks5(int(no))
 		print(proxy)
+
+	elif console == "":
+		pass	
 	
 
 	else:
 		print(b + "[!] Enter Correct Command . Type help command to see help menu")
 		print(reset)	
-
-
-
-
-			
-
-
-
-
-
-
-
-	
-
-
-
-
-
-	
-
-
-
-
-
-
-
-
-
-
-
 
 
 
