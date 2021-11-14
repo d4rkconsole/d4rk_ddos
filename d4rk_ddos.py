@@ -40,8 +40,8 @@ except:
 
 def banner():
 	header_banner = pyfiglet.figlet_format("  D4rk DDOS  ")
-	os.system("clear")
-	print(r , header_banner)
+	os.system("clear || cls")
+	print(r , header_banner )
 	print(b, "#" + "-" * 80 + "#")
 	print(b, "#" + "\t\t\t[+] OS CHECK : " + g,"{}" .format(sys.platform))
 	print(b, "#\t\t[+] Tool Coded By : " + g ,  "d4rk sh4d0w ")
@@ -70,7 +70,7 @@ while True:
 		print(b + "Exiting the Console Goodbye ...")
 		exit()	
 	elif console == "clear":
-		os.system("clear")
+		os.system("clear || cls")
 		banner()
 	elif console == "ddos":
 		print(b + "tcpflood:" + r , "Type tcpflood command to do tcpflood dos attack")
