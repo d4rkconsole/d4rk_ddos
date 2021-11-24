@@ -1,7 +1,7 @@
 # DDOS
 All in one ddos tool . ddos attacks methods 
 example tcp/udp/http/httpproxyflood and more ..
-# Update:
+# About Update:
 In Future i will be keep updating my d4rk ddos tool i have just  
 updated  proxy part in my tool.
 # Note
